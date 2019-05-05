@@ -26,10 +26,10 @@ public class CurrencyExchangeController {
     public ExchangeValue retrieveExchangeValue(@PathVariable String from, @PathVariable String to){
         ExchangeValue exchangeValue = repository.findByFromAndTo(from, to);
 
-        String portVal = environment.getProperty("server.port");
+       /* String portVal = environment.getProperty("local.server.port");
         if(portVal != null){
             exchangeValue.setPort(Integer.parseInt(portVal.trim()));
-        }
+        }*/
         logger.info("{}", exchangeValue);
         return exchangeValue;
     }
